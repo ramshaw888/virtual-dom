@@ -310,7 +310,7 @@ function patchObject(node, props, previous, propName, propValue) {
     if (propName === "attributes") {
         for (var attrName in propValue) {
             var attrValue = propValue[attrName]
-
+            console.log('vdom: attrName ' + attrName);
             if (attrValue === undefined) {
                 node.removeAttribute(attrName)
             } else {
