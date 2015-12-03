@@ -61,7 +61,11 @@ function patchObject(node, props, previous, propName, propValue) {
             if (attrValue === undefined) {
                 node.removeAttribute(attrName)
             } else {
-                node.setAttribute(attrName, attrValue)
+                if (attrName == 'value') {
+                    node.value = attrValue
+                } else {
+                    node.setAttribute(attrName, attrValue)
+                }
             }
         }
 
@@ -95,3 +99,4 @@ function getPrototype(value) {
         return value.constructor.prototype
     }
 }
+
